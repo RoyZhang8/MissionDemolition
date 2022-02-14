@@ -65,6 +65,9 @@ public class Slingshot : MonoBehaviour
             aimingMode = false;
             projectileRB.isKinematic = false;
             projectileRB.velocity = -mouseDelta * velocityMultipler;
+
+            FollowCam.POI = projectile;
+
             projectile = null; //forget the last instance
         }
 
