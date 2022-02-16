@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FollowCam : MonoBehaviour
 {
-
     /****VARIABLES****/
     static public GameObject POI; //THE STATIC POINT OF INTEREST
 
