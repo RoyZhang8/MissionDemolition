@@ -1,11 +1,11 @@
 /****
+ * Created by: Ruoyu Zhang
+ * Data Created: Feb 11, 2022
  * 
+ * Last Edited by: Feb 22, 2022
+ * Last Edited: Feb 22, 2022
  * 
- * 
- * 
- * 
- * 
- * 
+ * Description: Create the Slingshot
  */
 
 using System.Collections;
@@ -14,6 +14,8 @@ using UnityEngine;
 
 public class Slingshot : MonoBehaviour
 {
+    static public Slingshot S;
+
     /*** VARIABLES ***/
     [Header("Set in Inspector")]
     public GameObject prefabProjectile;
@@ -27,8 +29,20 @@ public class Slingshot : MonoBehaviour
     public bool aimingMode; // is player 
     public Rigidbody projectileRB; // ridigbody of projectile
 
+    static public Vector3 LAUNCH_POS
+    {
+        get
+        {
+            if (S == null) return Vector3.zero; //if there is no slingshot, return null
+            return S.launchPos; //otherwise return the launchPos
+        }
+    }
+
     private void Awake()
     {
+        // Set the Slingshot singleton S
+        S = this;
+
         Transform launchPointTrans = transform.Find("LaunchPoint");//find child object
 
         launchPoint = launchPointTrans.gameObject; //the game object of child object
@@ -69,6 +83,8 @@ public class Slingshot : MonoBehaviour
             FollowCam.POI = projectile;
 
             projectile = null; //forget the last instance
+            MissionDemolition.ShotFired();
+
         }
 
     }// end Update

@@ -1,3 +1,14 @@
+/****
+ * Created by: Ruoyu Zhang
+ * Data Created: Feb 11, 2022
+ * 
+ * Last Edited by: Feb 22, 2022
+ * Last Edited: Feb 22, 2022
+ * 
+ * Description: Create the Cloud
+ */
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +18,7 @@ public class Cloud : MonoBehaviour
 
     [Header("Set in Inespector")]
 
-    public GameObject clouSphere;
+    public GameObject CloudSphere;
     public int numberSpheresMin = 6;
     public int numberSphereMax = 10;
     public Vector2 sphereScaleRangeX = new Vector2(4, 8);
@@ -26,7 +37,7 @@ public class Cloud : MonoBehaviour
 
         for(int i = 0; i <num; i++)
         {
-            GameObject sp = Instantiate<GameObject>(clouSphere);
+            GameObject sp = Instantiate<GameObject>(CloudSphere);
             spheres.Add(sp);
 
             Transform spTrans = sp.transform;
